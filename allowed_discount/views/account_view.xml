@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form_custom" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.account.custom</field>
+        <field name="model">res.config.settings</field>
+         <field name="priority" eval="40"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Invoicing" string="Invoicing" data-key="account" groups="account.group_account_manager">
+                    <h2>Customer Discount</h2>
+                    <div class="row mt16 o_settings_container" id="customer">
+                        <div class="col-12 col-lg-6 o_setting_box" id="customer_disc">
+                            <label for="allowed_discount_account" string="Account Discount"/>
+                            <div class="o_setting_right_pane">
+                                <field name="allowed_discount_account"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt16 o_settings_container" id="product_discount">
+                        <div class="col-12 col-lg-6 o_setting_box" id="product_disc">
+                            <label for="allowed_discount_product" string="Product Discount"/>
+                            <div class="o_setting_right_pane">
+                                <field name="allowed_discount_product" domain="[('type','=','service')]"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    </data>
+</odoo>
